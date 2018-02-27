@@ -6,7 +6,6 @@ namespace LittleCuteBlockchain.Core
 {
     public class BlockService
     {
-        //5
         private List<Block> _blocks;
 
         public BlockService()

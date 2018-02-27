@@ -24,11 +24,6 @@ namespace LittleCuteBlockchain.Core
             Endpoints = new List<string>();
         }
 
-        public override async Task OnConnected(WebSocket socket)
-        {
-            await base.OnConnected(socket);
-        }
-
         public override async Task ReceiveAsync(WebSocket socket, WebSocketReceiveResult result, byte[] buffer)
         {
             var socketId = WebSocketConnectionManager.GetId(socket);
@@ -60,7 +55,7 @@ namespace LittleCuteBlockchain.Core
         {
             var message = new P2PMessage
             {
-                Chain = new List<Block>() { block },
+                Chain = new List<Block> { block },
                 Type = MessageType.BlockMined
             };
 
@@ -97,7 +92,7 @@ namespace LittleCuteBlockchain.Core
             if (parsedMessage.Type == MessageType.GetLastBlock)
             {
                 var blocks = _blockService.GetBlocks();
-                var compareLastBlock = new P2PMessage()
+                var compareLastBlock = new P2PMessage
                 {
                     Type = MessageType.CompareLastBlock,
                     Chain = new List<Block> { blocks.Last() }

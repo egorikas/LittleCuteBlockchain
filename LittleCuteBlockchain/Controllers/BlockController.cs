@@ -1,15 +1,12 @@
-﻿using System.Threading.Tasks;
-using LittleCuteBlockchain.Controllers.Requests;
+﻿using LittleCuteBlockchain.Controllers.Requests;
 using LittleCuteBlockchain.Core;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LittleCuteBlockchain.Controllers
 {
-    //4
     [Route("/blocks")]
     public class BlockController : Controller
     {
-        //5
         private readonly BlockService _blockChain;
         private readonly P2PService _p2PService;
 
